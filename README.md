@@ -48,7 +48,8 @@ It wrote the code, ran away, and now the game is unplayable.
 > Take a screenshot of your running, fixed game and insert it here.
 > Example: `![Fixed Game Screenshot](demo_screenshot.png)`
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [ ] <img width="1649" height="787" alt="image" src="https://github.com/user-attachments/assets/d7a32ec1-0ebf-4125-8f95-986feb924401" />
+
 
 ## ✅ Tests
 
@@ -69,3 +70,4 @@ Tests cover:
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+
