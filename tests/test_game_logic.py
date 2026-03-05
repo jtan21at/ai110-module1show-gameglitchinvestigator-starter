@@ -93,3 +93,36 @@ def test_too_high_subtracts_points():
 def test_too_low_subtracts_points():
     score_after = update_score(50, "Too Low", 1)
     assert score_after < 50
+
+# ---------------------------------------------------------------------------
+# parse_guess — None input
+# ---------------------------------------------------------------------------
+
+def test_parse_none_input():
+    # None should be treated the same as an empty/missing guess
+    ok, value, err = parse_guess(None)
+    assert ok is False
+    assert value is None
+
+# ---------------------------------------------------------------------------
+# get_range_for_difficulty — unknown / fallback difficulty
+# ---------------------------------------------------------------------------
+
+def test_unknown_difficulty_returns_default_range():
+    # Any unrecognised difficulty string must fall back to Normal (1–100)
+    low, high = get_range_for_difficulty("Expert")
+    assert low == 1 and high == 100
+
+# ---------------------------------------------------------------------------
+# update_score — minimum-points cap and unknown outcome
+# ---------------------------------------------------------------------------
+
+def test_win_score_is_at_least_10():
+    # Late-game win: attempt_number=10 → 100 - 10*(10+1) = -10, clamped to 10
+    new_score = update_score(0, "Win", 10)
+    assert new_score == 10
+
+def test_unknown_outcome_leaves_score_unchanged():
+    # An unrecognised outcome string must not change the score
+    score_after = update_score(50, "Draw", 1)
+    assert score_after == 50
